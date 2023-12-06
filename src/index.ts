@@ -1,6 +1,6 @@
-import { IProduct, IProductList } from "./interfaces";
+import { IProduct, IProductCrud } from "./interfaces";
 
-class ProductList implements IProductList {
+class ProductList implements IProductCrud {
     private productList: IProduct[] = []
     id: number = 1
 
@@ -27,14 +27,13 @@ class ProductList implements IProductList {
     }
 
     getOneProduct(id: number): IProduct | undefined {
-        const findProduct = this.productList.find((product) => {console.log(product); product.id === id})
-        console.log(findProduct);
-        
+        const findProduct = this.productList.find((product) => product.id === id)
+ 
         return findProduct
     }
 
-    updateProduct(id: number, data: Pick<IProduct, 'name' | 'price'>): IProduct {
-        const editProduct = this.productList.findIndex((product) => {product.id === id})
+    updateProduct(id: number, data: {name: string, price: number}): IProduct {
+        const editProduct = this.productList.findIndex((product) => product.id === id)
         const newProduct = {
             id: id,
             name: data.name,
@@ -56,11 +55,4 @@ class ProductList implements IProductList {
     }
 }
 
-const productList = new ProductList()
-
-const produto = {name: 'computador', price: 2500}
-productList.createProduct(produto)
-console.log(productList.getProducts());
-console.log(productList.getOneProduct(1));
-
-
+export const productList = new ProductList()

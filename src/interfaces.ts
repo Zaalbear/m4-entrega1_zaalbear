@@ -6,10 +6,10 @@ export interface IProduct {
     updatedAt: Date;
 }
 
-export interface IProductList {
-    createProduct(data: Pick<IProduct, 'name' | 'price'>): IProduct;
+export interface IProductCrud {
+    createProduct(data: {name: string, price: number}): IProduct;
     getProducts(): IProduct[];
     getOneProduct(id: number): IProduct | undefined;
-    updateProduct(id: number, data: Pick<IProduct, 'name' | 'price'>): IProduct;
+    updateProduct(id: number, data: {name: string, price: number}): IProduct;
     deleteProduct(id: number): any
 }
