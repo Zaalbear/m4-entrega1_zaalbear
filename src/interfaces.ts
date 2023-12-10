@@ -1,15 +1,15 @@
 export interface IProduct {
     id: number;
-    name: string;
-    price: number;
+    name: string | undefined;
+    price: number | undefined;
     createdAt: Date;
     updatedAt: Date;
 }
 
 export interface IProductCrud {
-    createProduct(data: {name: string, price: number}): IProduct;
+    createProduct(data: Partial<IProduct>): IProduct;
     getProducts(): IProduct[];
     getOneProduct(id: number): IProduct | undefined;
-    updateProduct(id: number, data: {name: string, price: number}): IProduct;
+    updateProduct(id: number, data: Partial<IProduct>): IProduct;
     deleteProduct(id: number): any
 }

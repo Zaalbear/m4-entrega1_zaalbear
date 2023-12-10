@@ -6,7 +6,7 @@ class ProductList implements IProductCrud {
 
     date = new Date()
 
-    createProduct(data: any): IProduct {
+    createProduct(data: Partial<IProduct>): IProduct {
         
         const product = {
             id: this.id,
@@ -32,7 +32,7 @@ class ProductList implements IProductCrud {
         return findProduct
     }
 
-    updateProduct(id: number, data: {name: string, price: number}): IProduct {
+    updateProduct(id: number, data: Partial<IProduct>): IProduct {
         const editProduct = this.productList.findIndex((product) => product.id === id)
         const newProduct = {
             id: id,
