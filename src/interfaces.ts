@@ -7,7 +7,7 @@ export interface IProduct {
 }
 
 export interface IProductCrud {
-    createProduct(data: Partial<IProduct>): IProduct;
+    createProduct(data: Pick<IProduct, "name" | "price">): IProduct;
     getProducts(): IProduct[];
     getOneProduct(id: number): IProduct | undefined;
     updateProduct(id: number, data: Partial<IProduct>): IProduct;
