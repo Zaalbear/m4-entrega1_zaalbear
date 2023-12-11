@@ -36,8 +36,8 @@ class ProductList implements IProductCrud {
         const editProduct = this.productList.findIndex((product) => product.id === id)
         const newProduct = {
             id: id,
-            name: data.name,
-            price: data.price,
+            name: data.name ? data.name : this.productList[editProduct].name,
+            price: data.price ?  data.price : this.productList[editProduct].price,
             createdAt: this.date,
             updatedAt: this.date,
         }

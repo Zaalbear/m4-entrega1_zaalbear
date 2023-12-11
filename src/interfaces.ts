@@ -1,7 +1,7 @@
 export interface IProduct {
     id: number;
-    name: string | undefined;
-    price: number | undefined;
+    name: string;
+    price: number;
     createdAt: Date;
     updatedAt: Date;
 }
